@@ -1,0 +1,21 @@
+ID: cfspringjsp
+_schema-version: '3.1'
+version: 0.0.1
+
+modules:
+ - name: service
+   type: java
+   path: service
+   parameters:
+      memory: 512M
+   provides:
+    - name: service_api
+      properties:
+         url: ${default-url}
+
+resources:
+ - name: postgres
+   type: postgresql
+   parameters:
+     service: postgresql
+     service-plan: "v9.4-dev"
